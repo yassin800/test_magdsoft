@@ -28,4 +28,16 @@ class DioHelper {
     };
     return await dio!.post(url, data: body);
   }
+
+  static Future<Response> postFormData({
+    required String url,
+    Map<String, dynamic>? query,
+    required   FormData body,
+  }) async {
+    dio!.options.headers = {
+      'Content-Type': 'application/json',
+    };
+    return await dio!.post(url, data: body);
+  }
+
 }

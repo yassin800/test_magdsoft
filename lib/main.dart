@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:magdsoft_flutter_structure/business_logic/bloc_observer.dart';
 import 'package:magdsoft_flutter_structure/business_logic/global_cubit/global_cubit.dart';
+import 'package:magdsoft_flutter_structure/business_logic/signcubit/signincubit.dart';
 import 'package:magdsoft_flutter_structure/data/local/cache_helper.dart';
 import 'package:magdsoft_flutter_structure/data/remote/dio_helper.dart';
 import 'package:magdsoft_flutter_structure/presentation/router/app_router.dart';
@@ -23,7 +24,7 @@ Future<void> main() async {
       DioHelper.init();
       await CacheHelper.init();
       final locale =
-          CacheHelper.getDataFromSharedPreference(key: 'language') ?? "ar";
+          CacheHelper.getDataFromSharedPreference(key: 'language') ?? "en";
       delegate = await LocalizationDelegate.create(
         fallbackLocale: locale,
         supportedLocales: ['ar', 'en'],
@@ -72,7 +73,9 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider(
           create: ((context) => GlobalCubit()),
+          
         ),
+        BlocProvider(create: ((context)=>SignInCubit()))
       ],
       child: BlocConsumer<GlobalCubit, GlobalState>(
         listener: (context, state) {},
