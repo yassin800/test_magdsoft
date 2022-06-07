@@ -1,0 +1,4 @@
+#Tue Jun 07 16:53:16 EET 2022
+base.0=C\:\\Users\\Yassi\\magdsoft_flutter_structure\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
